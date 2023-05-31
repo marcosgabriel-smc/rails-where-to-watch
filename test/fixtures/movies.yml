@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  about: MyString
+  rating: 1.5
+  streaming: MyString
+  poster_url: MyString
+
+two:
+  title: MyString
+  about: MyString
+  rating: 1.5
+  streaming: MyString
+  poster_url: MyString
