@@ -13,18 +13,18 @@ class MoviesController < ApplicationController
   def show
     find_movie(params[:movie_name])
     movie_info(@movie_url)
-    raise
   end
 
   private
 
-  ## RUN ALL METHODS TO RETRIEVE INFO
+  ## RUN ALL METHODS TO RETRIEVE INFO AND CREATE A PAIR ["STREAMING NAME", "ICON URL"]
   def movie_info(movie_url)
     streamings(movie_url)
     poster(movie_url)
     plot(movie_url)
     title(movie_url)
     rating(movie_url)
+    @streamings = @names_streamings.zip(@icons)
   end
 
   ## INDIVIDUAL METHODS FOR FINDING A CARACTHERISTIC OF THE REQUESTED MOVIE/SERIES
@@ -52,7 +52,7 @@ class MoviesController < ApplicationController
     icons = movie_objects.map do |obj|
       obj.to_h["data-src"]
     end
-    @streamings = streamings.uniq
+    @names_streamings = streamings.uniq
     @icons = icons.uniq
   end
 
