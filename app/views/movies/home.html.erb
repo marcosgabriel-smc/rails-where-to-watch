@@ -1,6 +1,11 @@
-<h1>What movie would you like to watch?</h1>
-
-<%= form_tag("/movies", method: "post") do %>
-  <%= text_field_tag :movie_name %>
-  <%= submit_tag "Submit" %>
-<% end %>
+<div class="container d-flex flex-column justify-content-center align-itens-center m-5 p-5">
+  <h1 id="x1">Qual o filme de hoje?</h1>
+  <hr>
+  <%= form_with url: ("/movie"), method: :post do |f| %>
+    <div class="mb-3">
+      <%= f.label :movie_name, "Nome do Filme", class: "form-label" %>
+      <%= f.text_field :movie_name, class: "form-control" %>
+    </div>
+    <%= f.submit "Pesquisar", class: "btn btn-primary" %>
+  <% end %>
+</div>

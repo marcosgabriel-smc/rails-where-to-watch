@@ -6,11 +6,7 @@ class MoviesController < ApplicationController
   def home
   end
 
-  def create
-    redirect_to show_movie_path([params[:movie_name]])
-  end
-
-  def show
+  def scrapped_streaming
     find_movie(params[:movie_name])
     movie_info(@movie_url)
   end
